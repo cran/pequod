@@ -1,0 +1,10 @@
+
+export(
+lmres,
+summary.lmres
+)
+S3method(lmres,default)
+S3method(print,lmres)
+S3method(print,summary.lmres)
+
+
