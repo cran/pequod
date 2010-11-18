@@ -23,28 +23,19 @@ summary.lmres(object, type = "default", ...)
 %%     ~~Describe \code{\dots} here~~
 }
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
+
 \value{
 The function summary is used to obtain a simple of nested summary of the results.
 
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
+
 \author{
 Alberto Mirisola and Luciano Seta 
-}
-\note{
-%%  ~~further notes~~
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
+
 \examples{
 
 library(car)

@@ -1,10 +1,18 @@
 
 export(
 lmres,
-summary.lmres
+summary.lmres,
+simpleSlope,
+summary.simpleSlope,
+PlotSlope
 )
 S3method(lmres,default)
 S3method(print,lmres)
 S3method(print,summary.lmres)
+S3method(simpleSlope,default)
+S3method(print,simpleSlope)
+S3method(print,summary.simpleSlope)
+
+
 
 

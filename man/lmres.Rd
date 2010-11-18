@@ -60,9 +60,7 @@ Cohen, J., Cohen, P.,West, S. G.,&Aiken, L. S. (2003). Applied multiple regressi
 \author{
 Alberto Mirisola and Luciano Seta 
 }
-\note{
-%%  ~~further notes~~
-}
+
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 

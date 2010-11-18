@@ -85,8 +85,8 @@ preditt<-function(formula, data, residual_centering= FALSE, centered="none"){
 		stop()
 		}
 
-	# replacing .X. to :
-	nomres<-gsub(":",".X.",xmname)
+	# replacing .XX. to :
+	nomres<-gsub(":",".XX.",xmname)
 	ert<-matrxx
 	colnames(ert)<-nomres
 
@@ -230,7 +230,7 @@ preditt<-function(formula, data, residual_centering= FALSE, centered="none"){
 		n<-0
 		for(i in (1:fII)){
 			n<-n+1	
-			jj<-strsplit(dimnames(matrx2)[[2]][i],".X.")
+			jj<-strsplit(dimnames(matrx2)[[2]][i],".XX.")
 			ind <- paste(jj[[1]], collapse="+")
 			
 			formula1[n]<-paste(dimnames(matrx2)[[2]][i],"~", ind)
@@ -267,11 +267,11 @@ preditt<-function(formula, data, residual_centering= FALSE, centered="none"){
 		n<-0
 		for(i in (1:fIII)){
 			n<-n+1	
-			jj<-strsplit(dimnames(matrx3)[[2]][i],".X.")
+			jj<-strsplit(dimnames(matrx3)[[2]][i],".XX.")
 			inx <- paste(jj[[1]], collapse="+")
-			inxx<-paste(jj[[1]][1:2],collapse=".X.")
-			inxxx<-paste(jj[[1]][c(1,3)],collapse=".X.")
-			inxxxx<-paste(jj[[1]][2:3],collapse=".X.")
+			inxx<-paste(jj[[1]][1:2],collapse=".XX.")
+			inxxx<-paste(jj[[1]][c(1,3)],collapse=".XX.")
+			inxxxx<-paste(jj[[1]][2:3],collapse=".XX.")
 			indxx<-paste(inx,"+",inxx,"+",inxxx,"+",inxxxx)
 			
 			formula2[n]<-paste(dimnames(matrx3)[[2]][i],"~", indxx)
