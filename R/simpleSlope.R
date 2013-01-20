@@ -560,7 +560,7 @@ print.summary.simpleSlope <- function(x, ...) {
 	cat("\n")
 	cat("** Simple Slopes analysis ( df=", x$Df, ") **\n")
 	cat("\n")
-	printCoefmat(x$simple_slope, P.value = TRUE, has.Pvalue = TRUE, 
+	printCoefmat(x$simple_slope, P.values = TRUE, has.Pvalue = TRUE, 
 		justify = "centre", digits = 3)
 	cat("\n")
 	cat("\n")
@@ -577,7 +577,7 @@ print.summary.simpleSlope <- function(x, ...) {
 		
 		cat("** Slope Difference Test (( df=", x$Df, "); Dawson & Richter, 2006) **\n")
 		
-		printCoefmat(x$delta_slope, P.value = TRUE, has.Pvalue = TRUE, 
+		printCoefmat(x$delta_slope, P.values = TRUE, has.Pvalue = TRUE, 
 			justify = "centre")
 	}
 	

@@ -137,8 +137,8 @@ preditt<-function(formula, data, residual_centering= FALSE, centered="none"){
 
 	#beta for first order regression (copied from QuantPsych package)
     coe<-pippox$coefficients[2:length(pippox$coefficients)]
-    sy<-sd(pippox$model[1])
-    sx<-sd(pippox$model[2:length(pippox$coefficients)])
+    sy<-sapply(pippox$model[1],sd)
+    sx<-sapply(pippox$model[2:length(pippox$coefficients)],sd)
     beta.stepI<-coe * sx/sy
 	beta.stepI<- c(NA,beta.stepI)
 		
@@ -159,8 +159,8 @@ preditt<-function(formula, data, residual_centering= FALSE, centered="none"){
 			
 			# beta for second order regression (copied from QuantPsych package)
 		coe2<-pippoxx$coefficients[2:length(pippoxx$coefficients)]
-		sy2<-sd(pippoxx$model[1])
-		sx2<-sd(pippoxx$model[2:length(pippoxx$coefficients)])
+		sy2<-sapply(pippoxx$model[1],sd)
+		sx2<-sapply(pippoxx$model[2:length(pippoxx$coefficients)],sd)
 		beta.stepII<-coe2 * sx2/sy2
 		beta.stepII<- c(NA,beta.stepII)
 			}
@@ -181,8 +181,8 @@ preditt<-function(formula, data, residual_centering= FALSE, centered="none"){
 	
 	# beta for third order regression (copied from QuantPsych package)
 		coe3<-pippoxxx$coefficients[2:length(pippoxxx$coefficients)]
-		sy3<-sd(pippoxxx$model[1])
-		sx3<-sd(pippoxxx$model[2:length(pippoxxx$coefficients)])
+		sy3<-sapply(pippoxxx$model[1],sd)
+		sx3<-sapply(pippoxxx$model[2:length(pippoxxx$coefficients)],sd)
 		beta.stepIII<-coe3 * sx3/sy3
 		beta.stepIII<- c(NA,beta.stepIII)
 		
@@ -215,8 +215,8 @@ preditt<-function(formula, data, residual_centering= FALSE, centered="none"){
 
 	#beta for first order regression (copied from QuantPsych package)
     coe<-pippox$coefficients[2:length(pippox$coefficients)]
-    sy<-sd(pippox$model[1])
-    sx<-sd(pippox$model[2:length(pippox$coefficients)])
+    sy<-sapply(pippox$model[1],sd)
+    sx<-sapply(pippox$model[2:length(pippox$coefficients)],sd)
     beta.stepI<-coe * sx/sy
 	beta.stepI<- c(NA,beta.stepI)
 		
@@ -249,8 +249,8 @@ preditt<-function(formula, data, residual_centering= FALSE, centered="none"){
 			
 			# beta for second order regression (copied from QuantPsych package)
 		coe2<-pippoxx$coefficients[2:length(pippoxx$coefficients)]
-		sy2<-sd(pippoxx$model[1])
-		sx2<-sd(pippoxx$model[2:length(pippoxx$coefficients)])
+		sy2<-sapply(pippoxx$model[1],sd)
+		sx2<-sapply(pippoxx$model[2:length(pippoxx$coefficients)],sd)
 		beta.stepII<-coe2 * sx2/sy2
 		beta.stepII<- c(NA,beta.stepII)
 			}
@@ -289,8 +289,8 @@ preditt<-function(formula, data, residual_centering= FALSE, centered="none"){
 	
 	# beta for third order regression (copied from QuantPsych package)
 		coe3<-pippoxxx$coefficients[2:length(pippoxxx$coefficients)]
-		sy3<-sd(pippoxxx$model[1])
-		sx3<-sd(pippoxxx$model[2:length(pippoxxx$coefficients)])
+		sy3<-sapply(pippoxxx$model[1],sd)
+		sx3<-sapply(pippoxxx$model[2:length(pippoxxx$coefficients)],sd)
 		beta.stepIII<-coe3 * sx3/sy3
 		beta.stepIII<- c(NA,beta.stepIII)
 		
@@ -447,7 +447,7 @@ preditt<-function(formula, data, residual_centering= FALSE, centered="none"){
 			adj.r.square<-su$adj.r.squared
 
 			stat<-cbind(R, R.square3, adj.r.square, fstatistic[1],fstatistic[2], fstatistic[3],
-			p.value=pf(fstatistic[1],fstatistic[2],fstatistic[3],lower=F))
+			p.value=pf(fstatistic[1],fstatistic[2],fstatistic[3],lower.tail=FALSE))
 
 			rownames(stat)<-"Model 1:"
 	
@@ -513,7 +513,7 @@ preditt<-function(formula, data, residual_centering= FALSE, centered="none"){
 			adj.r.square<-su$adj.r.squared
 			R1<-R.square
 			Fs1<-cbind(R, R.square, adj.r.square,R1,fstatistic[1],fstatistic[2], fstatistic[3],
-			p.value=pf(fstatistic[1],fstatistic[2],fstatistic[3],lower=F))
+			p.value=pf(fstatistic[1],fstatistic[2],fstatistic[3],lower.tail=FALSE))
 
 			rownames(Fs1)<-"Model 1"
 
@@ -528,7 +528,7 @@ preditt<-function(formula, data, residual_centering= FALSE, centered="none"){
 			adj.r.square<-su$adj.r.squared
 			R3<-R.square3-R.square
 			Fs3<-cbind(R, R.square3, adj.r.square,R3,fstatistic[1],fstatistic[2], fstatistic[3],
-			p.value=pf(fstatistic[1],fstatistic[2],fstatistic[3],lower=F))
+			p.value=pf(fstatistic[1],fstatistic[2],fstatistic[3],lower.tail=FALSE))
 
 			rownames(Fs3)<-"Model 2:"
 	
@@ -613,7 +613,7 @@ preditt<-function(formula, data, residual_centering= FALSE, centered="none"){
 			adj.r.square<-su$adj.r.squared
 			R1<-R.square
 			Fs1<-cbind(R, R.square, adj.r.square,R1,fstatistic[1],fstatistic[2], fstatistic[3],
-			p.value=pf(fstatistic[1],fstatistic[2],fstatistic[3],lower=F))
+			p.value=pf(fstatistic[1],fstatistic[2],fstatistic[3],lower.tail=FALSE))
 			rownames(Fs1)<-"Model 1"
 			
 	#fstatistic step II
@@ -627,7 +627,7 @@ preditt<-function(formula, data, residual_centering= FALSE, centered="none"){
 			adj.r.square<-su$adj.r.squared
 			R2<-R.square-R1
 			Fs2<-cbind(R, R.square, adj.r.square,R2,fstatistic[1],fstatistic[2], fstatistic[3],
-			p.value=pf(fstatistic[1],fstatistic[2],fstatistic[3],lower=F))
+			p.value=pf(fstatistic[1],fstatistic[2],fstatistic[3],lower.tail=FALSE))
 			rownames(Fs2)<-"Model 2"
 	
 	#fstatistic step III
@@ -644,7 +644,7 @@ preditt<-function(formula, data, residual_centering= FALSE, centered="none"){
 			adj.r.square<-su$adj.r.squared
 			R3<-R.square3-R.square
 			Fs3<-cbind(R, R.square3, adj.r.square,R3,fstatistic[1],fstatistic[2], fstatistic[3],
-			p.value=pf(fstatistic[1],fstatistic[2],fstatistic[3],lower=F))
+			p.value=pf(fstatistic[1],fstatistic[2],fstatistic[3],lower.tail=FALSE))
 			rownames(Fs3)<-"Model 3:"
 	
 			
@@ -679,10 +679,10 @@ preditt<-function(formula, data, residual_centering= FALSE, centered="none"){
 			cat("Models\n")	
 			Fs<-cbind(x$R, x$R_squared, x$Adjusted_R_squared,value=x$fstatistic[1],
 			numdf=x$fstatistic[2], dendf=x$fstatistic[3],
-			p.value=pf(x$fstatistic[1],x$fstatistic[2],x$fstatistic[3],lower=F))
+			p.value=pf(x$fstatistic[1],x$fstatistic[2],x$fstatistic[3],lower.tail=FALSE))
 			colnames(Fs)<-c("R  ","R^2 "," Adj. R^2","F  ","df1 ","df2 ","p.value")
 			rownames(Fs)<-"Model"
-			printCoefmat(Fs,P.value=TRUE, has.Pvalue=TRUE,justify="centre",digits=3)
+			printCoefmat(Fs,P.values=TRUE, has.Pvalue=TRUE,justify="centre",digits=3)
 			cat("\n")
 
 			cat("Residuals\n")
@@ -690,7 +690,7 @@ preditt<-function(formula, data, residual_centering= FALSE, centered="none"){
 			cat("\n")
 
 			cat("Coefficients\n")
-			printCoefmat( x$coefficients, P.value=TRUE, has.Pvalue=TRUE,na.print="")
+			printCoefmat( x$coefficients, P.values=TRUE, has.Pvalue=TRUE,na.print="")
 			cat("\n")
 
 			cat("Collinearity\n")
@@ -745,7 +745,7 @@ preditt<-function(formula, data, residual_centering= FALSE, centered="none"){
 	# statistics
 			cat("**Statistics**\n")
 			cat("\n")	
-			printCoefmat(x$stat,P.value=TRUE, has.Pvalue=TRUE,justify="centre")
+			printCoefmat(x$stat,P.values=TRUE, has.Pvalue=TRUE,justify="centre")
 			cat("\n")
 			cat("\n")
 			
@@ -755,7 +755,7 @@ preditt<-function(formula, data, residual_centering= FALSE, centered="none"){
 				cat("**F change**\n")
 				cat("\n")	
 				Fs<-x$F_change
-				printCoefmat(Fs,P.value=TRUE, has.Pvalue=TRUE,justify="centre",digits=3,na.print="")
+				printCoefmat(Fs,P.values=TRUE, has.Pvalue=TRUE,justify="centre",digits=3,na.print="")
 				cat("\n")
 				cat("\n")
 				}
@@ -764,7 +764,7 @@ preditt<-function(formula, data, residual_centering= FALSE, centered="none"){
 	# coefficients
 			cat("**Coefficients**\n")
 			cat("\n")
-			printCoefmat( x$coefficients, P.value=TRUE, has.Pvalue=TRUE,na.print="")
+			printCoefmat( x$coefficients, P.values=TRUE, has.Pvalue=TRUE,na.print="")
 			cat("\n")
 	
 		}
