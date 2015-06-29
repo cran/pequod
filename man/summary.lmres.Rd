@@ -9,7 +9,7 @@ summary  for lmres object
 return simple and nested summaries
 }
 \usage{
-summary.lmres(object, type = "default", ...)
+\method{summary}{lmres}(object, type = "default", ...)
 
 }
 %- maybe also 'usage' for other objects documented here.
@@ -40,7 +40,8 @@ Alberto Mirisola and Luciano Seta
 
 library(car)
 data(Ginzberg)
-model1<-lmres(adjdep~adjsimp*adjfatal, centered=c("adjsimp", "adjfatal"), data=Ginzberg)
+model1<-lmres(adjdep~adjsimp*adjfatal, centered=c("adjsimp", "adjfatal"),
+data=Ginzberg)
 
 summary(model1)
 summary(model1, type="nested")

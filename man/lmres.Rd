@@ -72,14 +72,17 @@ Alberto Mirisola and Luciano Seta
 	## moderated regression with mean centering
 	library(car)
 	data(Ginzberg)
-	model1<-lmres(adjdep~adjsimp*adjfatal, centered=c("adjsimp", "adjfatal"), data=Ginzberg)
+	model1<-lmres(adjdep~adjsimp*adjfatal, centered=c("adjsimp", "adjfatal"),
+	data=Ginzberg)
 	
 	## moderated regression with mean centering
 	library(car)
 	data(Ginzberg)
-	model1<-lmres(adjdep~adjsimp*adjfatal, centered=c("adjsimp", "adjfatal"), data=Ginzberg)
+	model1<-lmres(adjdep~adjsimp*adjfatal, centered=c("adjsimp", "adjfatal"),
+	data=Ginzberg)
 	## moderated regression with mean centering
-	model2<-lmres(adjdep~adjsimp*adjfatal,residual_centering=TRUE, centered=c("adjsimp", "adjfatal"), data=Ginzberg)
+	model2<-lmres(adjdep~adjsimp*adjfatal,residual_centering=TRUE,
+	centered=c("adjsimp", "adjfatal"), data=Ginzberg)
 	## three way interaction with mean centering
 	library(car)
 	data(Highway1)

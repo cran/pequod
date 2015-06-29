@@ -9,7 +9,7 @@ summary  for simpleSlope object
 return summaries for simpleSlope object
 }
 \usage{
-summary.simpleSlope(object,...)
+\method{summary}{simpleSlope}(object,...)
 
 }
 %- maybe also 'usage' for other objects documented here.

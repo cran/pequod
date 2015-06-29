@@ -6,7 +6,8 @@ Simple slopes plot }
 Simple slope plot for two and three way interactions. 
 }
 \usage{
-PlotSlope(object, namemod = "default", namex = "default", namey = "default", limitx = "default", limity = "default")
+PlotSlope(object, namemod = "default", namex = "default",
+namey = "default", limitx = "default", limity = "default")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -60,7 +61,14 @@ Alberto Mirisola and Luciano Seta
 	data(Highway1)
 	model3<-lmres(rate~len*trks*sigs1, centered=c("len","trks","sigs1"),data=Highway1)
 	S_slopes<-simpleSlope(model3,pred="len",mod1="trks", mod2="sigs1")
-	Plot<-PlotSlope(S_slopes, namemod=c("Low truck volume (-1SD), Low number of signals per mile (-1 SD)","Low truck volume (-1SD), High number of signals per mile (+1 SD)","High truck volume (+1SD), Low number of signals per mile (-1 SD)","High truck volume (+1SD), High number of signals per mile (+1 SD)"),namex="length of the Highway1\n segment in miles", namey="1973 accident rate \n per million vehicle miles", limitx=c(-9,9), limity=c(-2,9))
+	Plot<-PlotSlope(S_slopes, namemod=c("Low truck volume (-1SD),
+	Low number of signals per mile (-1 SD)","Low truck volume (-1SD),
+	High number of signals per mile (+1 SD)","High truck volume (+1SD),
+	Low number of signals per mile (-1 SD)","High truck volume (+1SD), 
+	High number of signals per mile (+1 SD)"),
+	namex="length of the Highway1\n segment in miles",
+	namey="1973 accident rate \n per million vehicle miles",
+	limitx=c(-9,9), limity=c(-2,9))
 
 
 ## The function is currently defined as

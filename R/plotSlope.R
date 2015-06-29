@@ -1,7 +1,7 @@
 PlotSlope <- function(object, namemod = "default", 
 	namex = "default", namey = "default", limitx = "default", 
 	limity = "default") {
-	
+	yini<-yend<-NULL
 	pmatr <- object$Points
 	nomY <- object$nomY
 	nomX <- object$nomX
