@@ -1,4 +1,4 @@
-
+# object=mod5
 ## moderated regression with mean centering
 #library(car)
 #data(Ginzberg)
@@ -32,16 +32,16 @@ simple.slope <- function(object, pred, mod1, mod2 = "none",
 	
 	
 	if (ord == TRUE) {
-		pos_pred <- grep(pred, jj[1:fI])
+		pos_pred <- grep(paste0("\\b",pred,"\\b"), jj[1:fI])
 		#posizione predittore + intercetta
-		pos_mod <- grep(mod1, jj[1:fI])
+		pos_mod <- grep(paste0("\\b",mod1,"\\b"), jj[1:fI])
 		#posizione moderatore + intercetta
 		
 		
-		pos_pred_mod1 <- fI + grep(mod1, jj[(fI + 1):(fI + fII)])
+		pos_pred_mod1 <- fI + grep(paste0("\\b",mod1,"\\b"), jj[(fI + 1):(fI + fII)])
 		#posizione moderatore + intercetta
-		pos_pred_mod2 <- fI + grep(pred, jj[(fI + 1):(fI + fII)])
-		#posizione moderatore + intercetta
+		pos_pred_mod2 <- fI + grep(paste0("\\b",pred,"\\b"), jj[(fI + 1):(fI + fII)])
+		#posizione moderatore + intercetta 
 		posint2 <- sum((pos_pred_mod1 %in% pos_pred_mod2) * pos_pred_mod1)
 		#posiz finale
 		
@@ -186,20 +186,20 @@ simple.slope <- function(object, pred, mod1, mod2 = "none",
 	if (ord == FALSE) {
 		
 		# ordine 1
-		pos_pred <- grep(pred, jj[1:fI])
+		pos_pred <- grep(paste0("\\b",pred,"\\b"), jj[1:fI])
 		#posizione predittore + intercetta
-		pos_mod <- grep(mod1, jj[1:fI])
+		pos_mod <- grep(paste0("\\b",mod1,"\\b"), jj[1:fI])
 		#posizione moderatore + intercetta
-		pos_mod1 <- grep(mod2, jj[1:fI])
+		pos_mod1 <- grep(paste0("\\b",mod2,"\\b"), jj[1:fI])
 		#posizione moderatore 2 + intercetta
 		
 		
 		# ordine 2
-		pos_II_mod1 <- fI + grep(mod1, jj[(fI + 1):(fI + fII)])
+		pos_II_mod1 <- fI + grep(paste0("\\b",mod1,"\\b"), jj[(fI + 1):(fI + fII)])
 		#posizione moderatore 1 + intercetta
-		pos_II_mod2 <- fI + grep(mod2, jj[(fI + 1):(fI + fII)])
+		pos_II_mod2 <- fI + grep(paste0("\\b",mod2,"\\b"), jj[(fI + 1):(fI + fII)])
 		#posizione moderatore + intercetta
-		pos_II_pred <- fI + grep(pred, jj[(fI + 1):(fI + fII)])
+		pos_II_pred <- fI + grep(paste0("\\b",pred,"\\b"), jj[(fI + 1):(fI + fII)])
 		#posizione moderatore + intercetta
 		
 		pos_pred_mod1 <- intersect(pos_II_pred, pos_II_mod1)
@@ -207,13 +207,13 @@ simple.slope <- function(object, pred, mod1, mod2 = "none",
 		pos_mod1_mod2 <- intersect(pos_II_mod1, pos_II_mod2)
 		
 		# ordine 3
-		pos_III_mod1 <- fI + fII + grep(mod1, jj[(fI + fII + 
+		pos_III_mod1 <- fI + fII + grep(paste0("\\b",mod1,"\\b"), jj[(fI + fII + 
 			1):(fI + fII + fIII)])
 		#posizione moderatore 1 + intercetta
-		pos_III_mod2 <- fI + fII + grep(mod2, jj[(fI + fII + 
+		pos_III_mod2 <- fI + fII + grep(paste0("\\b",mod2,"\\b"), jj[(fI + fII + 
 			1):(fI + fII + fIII)])
 		#posizione moderatore + intercetta
-		pos_III_pred <- fI + fII + grep(pred, jj[(fI + fII + 
+		pos_III_pred <- fI + fII + grep(paste0("\\b",pred,"\\b"), jj[(fI + fII + 
 			1):(fI + fII + fIII)])
 		#posizione moderatore + intercetta
 		
